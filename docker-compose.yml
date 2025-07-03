@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: screenmaster_app
+    ports:
+      - "8081:8081" 
+    volumes:
+      - .:/app 
+      - /app/node_modules 
+    environment:
+      - "RCT_METRO_PORT=8081"
+      - "ADB_SERVER_SOCKET=tcp:host.docker.internal:5037"
+    network_mode: "host"
