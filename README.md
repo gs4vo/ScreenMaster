@@ -32,6 +32,7 @@ cd ScreenMaster
 Utilize o npm para instalar todas as dependências do projeto listadas no package.json.
 
 Bash
+
 npm install
 
 
@@ -40,6 +41,7 @@ npm install
 Em um terminal, inicie o servidor de desenvolvimento do Metro.
 
 Bash
+
 npm start
 
 4. Execute o Aplicativo
@@ -49,6 +51,7 @@ Com o servidor Metro rodando, abra outro terminal e execute o comando para a pla
 Para Android:
 
 Bash
+
 npm run android
 
 
