@@ -65,4 +65,5 @@ ScreenMaster/
 │   ├── screens/          # As telas do aplicativo (HomeScreen, RecordingsScreen)
 │   ├── services/         # Lógica de negócio (ex: recordingService)
 │   └── styles/           # Folhas de estilo para os componentes e telas
+├── ios/                  # Arquivos nativos do iOS
 └── android/              # Arquivos nativos do Android
