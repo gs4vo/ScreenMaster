@@ -1,13 +1,16 @@
 ScreenMaster 
+
 ScreenMaster é um aplicativo móvel, construído com React Native, que permite a gravação da tela de dispositivos Android e iOS. O projeto foi desenvolvido com foco em uma interface limpa, moderna e uma experiência de usuário intuitiva, utilizando uma paleta de cores escuras e componentes de feedback personalizados.
 
 Funcionalidades
+
 Gravação de Tela: Inicie e pare a gravação da tela com um único toque.
 Galeria de Gravações: Visualize todas as suas gravações salvas em uma lista organizada por data.
 Gerenciamento de Vídeos: Exclua gravações que não são mais necessárias.
 Feedback Intuitivo: Modais personalizados para confirmações e alertas, substituindo os pop-ups padrão do sistema.
 
 🚀 Tecnologias Utilizadas
+
 Este projeto foi construído utilizando as seguintes tecnologias:
 
 React Native
@@ -24,7 +27,8 @@ Para executar este projeto localmente, siga os passos abaixo. Certifique-se de t
 
 Bash
 
-git clone https://github.com/seu-usuario/ScreenMaster.git
+git clone [https://github.com/seu-usuario/ScreenMaster.git](https://github.com/gs4vo/ScreenMaster.git)
+
 cd ScreenMaster
 
 2. Instale as dependências
