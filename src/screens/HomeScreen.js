@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
-import { View, Text, Pressable, Alert } from 'react-native';
+import { View, Text, Pressable } from 'react-native'; 
 import { startRecording, stopRecording } from '../services/recordingService';
 import styles from '../styles/HomeScreenStyles'; // A importação correta
+import FeedbackModal from '../components/FeedbackModal';
 
 const HomeScreen = ({ navigation }) => {
   const [isRecording, setIsRecording] = useState(false);
+  
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalTitle, setModalTitle] = useState('');
+  const [modalMessage, setModalMessage] = useState('');
+
+  const showModal = (title, message) => {
+    setModalTitle(title);
+    setModalMessage(message);
+    setModalVisible(true);
+  };
 
   const handleStart = async () => {
     setIsRecording(true);
@@ -14,7 +25,7 @@ const HomeScreen = ({ navigation }) => {
   const handleStop = async () => {
     await stopRecording();
     setIsRecording(false);
-    Alert.alert('Gravação Salva!', 'Sua gravação foi salva com sucesso.');
+    showModal('Gravação Salva!', 'Sua gravação foi salva com sucesso.');
   };
 
   return (
@@ -30,9 +41,6 @@ const HomeScreen = ({ navigation }) => {
         <Text style={styles.buttonText}>{isRecording ? 'Parar Gravação' : 'Iniciar Gravação'}</Text>
       </Pressable>
 
-
-
-
       <View style={styles.separator} />
 
       <Pressable
@@ -41,6 +49,14 @@ const HomeScreen = ({ navigation }) => {
       >
         <Text style={styles.buttonText}>Ver Minhas Gravações</Text>
       </Pressable>
+      
+      {}
+      <FeedbackModal
+        visible={modalVisible}
+        title={modalTitle}
+        message={modalMessage}
+        onClose={() => setModalVisible(false)}
+      />
     </View>
   );
 };

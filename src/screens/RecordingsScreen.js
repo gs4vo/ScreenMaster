@@ -1,11 +1,19 @@
 import React, { useState, useCallback } from 'react';
-import { View, Text, FlatList, Pressable, Alert } from 'react-native';
+import { View, Text, FlatList, Pressable } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { getRecordings, deleteRecording } from '../services/recordingService';
 import styles from '../styles/RecordingScreenStyles';
+import FeedbackModal from '../components/FeedbackModal';
+import ConfirmationModal from '../components/ConfirmationModal';
 
 const RecordingsScreen = () => {
   const [recordings, setRecordings] = useState([]);
+  
+  const [feedbackModalVisible, setFeedbackModalVisible] = useState(false);
+  const [feedbackModalMessage, setFeedbackModalMessage] = useState('');
+
+  const [confirmationModalVisible, setConfirmationModalVisible] = useState(false);
+  const [selectedRecordingId, setSelectedRecordingId] = useState(null);
 
   const loadRecordings = async () => {
     const data = await getRecordings();
@@ -19,17 +27,24 @@ const RecordingsScreen = () => {
   );
 
   const handlePlay = (item) => {
-    Alert.alert('Reproduzir Vídeo', `Implementar player de video:\n\n${item.path}`);
+    setFeedbackModalMessage(`Iniciar player de vídeo:\n\n${item.path}`);
+    setFeedbackModalVisible(true);
   };
 
-  const handleDelete = (id) => {
-    Alert.alert('Confirmar Exclusão', 'Deseja realmente deletar esta gravação?', [
-      { text: 'Cancelar', style: 'cancel' },
-      { text: 'Deletar', style: 'destructive', onPress: async () => { await deleteRecording(id); loadRecordings(); } },
-    ]);
+  const handleDeletePress = (id) => {
+    setSelectedRecordingId(id);
+    setConfirmationModalVisible(true);
   };
 
-  // Gravações da lista
+  const confirmDelete = async () => {
+    if (selectedRecordingId) {
+      await deleteRecording(selectedRecordingId);
+      loadRecordings();
+    }
+    setConfirmationModalVisible(false);
+    setSelectedRecordingId(null);
+  };
+
   const renderItem = ({ item }) => (
     <View style={styles.itemContainer}>
       <Text style={styles.itemText}>
@@ -39,7 +54,8 @@ const RecordingsScreen = () => {
         <Pressable style={[styles.itemButton, styles.playButton]} onPress={() => handlePlay(item)}>
           <Text style={styles.itemButtonText}>Reproduzir</Text>
         </Pressable>
-        <Pressable style={[styles.itemButton, styles.deleteButton]} onPress={() => handleDelete(item.id)}>
+        {}
+        <Pressable style={[styles.itemButton, styles.deleteButton]} onPress={() => handleDeletePress(item.id)}>
           <Text style={styles.itemButtonText}>Deletar</Text>
         </Pressable>
       </View>
@@ -60,6 +76,23 @@ const RecordingsScreen = () => {
           contentContainerStyle={{ paddingBottom: 20 }}
         />
       )}
+
+      {}
+      <FeedbackModal
+        visible={feedbackModalVisible}
+        title="Reproduzir Vídeo"
+        message={feedbackModalMessage}
+        onClose={() => setFeedbackModalVisible(false)}
+      />
+      
+      {}
+      <ConfirmationModal
+        visible={confirmationModalVisible}
+        title="Confirmar Exclusão"
+        message="Deseja realmente deletar esta gravação?"
+        onClose={() => setConfirmationModalVisible(false)}
+        onConfirm={confirmDelete}
+      />
     </View>
   );
 };
