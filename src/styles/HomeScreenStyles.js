@@ -1,3 +1,4 @@
+// src/styles/HomeScreenStyles.js
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -5,14 +6,14 @@ export default StyleSheet.create({
     flex: 1, 
     justifyContent: 'center', 
     padding: 20, 
-    backgroundColor: '#f0f0f0' 
+    backgroundColor: '#0D1117'
   },
   statusText: { 
     fontSize: 22, 
     fontWeight: 'bold', 
     textAlign: 'center', 
     marginBottom: 30, 
-    color: '#333' 
+    color: '#C9D1D9'
   },
   button: { 
     alignItems: 'center', 
@@ -23,13 +24,15 @@ export default StyleSheet.create({
     elevation: 3 
   },
   buttonStart: { 
-    backgroundColor: '#28a745' 
+    backgroundColor: '#238636'
   },
   buttonStop: { 
-    backgroundColor: '#dc3545' 
+    backgroundColor: '#DA3633'
   },
   buttonSecondary: { 
-    backgroundColor: '#6c757d' 
+    backgroundColor: '#21262D',
+    borderWidth: 1,
+    borderColor: '#30363D'
   },
   buttonText: { 
     fontSize: 16, 

@@ -14,7 +14,7 @@ const HomeScreen = ({ navigation }) => {
   const handleStop = async () => {
     await stopRecording();
     setIsRecording(false);
-    Alert.alert('Gravação Salva!', 'Sua gravação (simulada) foi salva com sucesso.');
+    Alert.alert('Gravação Salva!', 'Sua gravação foi salva com sucesso.');
   };
 
   return (

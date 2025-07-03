@@ -19,7 +19,7 @@ const RecordingsScreen = () => {
   );
 
   const handlePlay = (item) => {
-    Alert.alert('Reproduzir Vídeo', `Aqui você implementaria o player de vídeo para o arquivo em:\n\n${item.path}`);
+    Alert.alert('Reproduzir Vídeo', `Implementar player de video:\n\n${item.path}`);
   };
 
   const handleDelete = (id) => {

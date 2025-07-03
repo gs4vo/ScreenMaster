@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#0D1117',
   },
   emptyContainer: {
     flex: 1,
@@ -12,25 +12,21 @@ export default StyleSheet.create({
   },
   emptyText: {
     fontSize: 18,
-    color: '#888',
+    color: '#8B949E',
   },
   itemContainer: {
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#161B22',
     padding: 15,
     marginVertical: 8,
     marginHorizontal: 16,
     borderRadius: 8,
-    elevation: 2, // Sombra para Android
+    borderWidth: 1,
+    borderColor: '#30363D'
   },
   itemText: {
     fontSize: 16,
     fontWeight: 'bold',
-  },
-  itemPath: {
-    fontSize: 12,
-    color: '#666',
-    fontStyle: 'italic',
-    marginVertical: 5,
+    color: '#C9D1D9'
   },
   buttonsContainer: {
     flexDirection: 'row',
@@ -44,10 +40,10 @@ export default StyleSheet.create({
     marginLeft: 10,
   },
   playButton: {
-    backgroundColor: '#007bff', // Azul
+    backgroundColor: '#21262D',
   },
   deleteButton: {
-    backgroundColor: '#dc3545', // Vermelho
+    backgroundColor: '#DA3633',
   },
   itemButtonText: {
     color: 'white',
