@@ -54,16 +54,3 @@ Bash
 
 npm run android
 
-
-📂 Estrutura de Pastas
-O projeto está organizado da seguinte forma para facilitar a manutenção e escalabilidade:
-
-ScreenMaster/
-├── src/
-│   ├── components/       # Componentes reutilizáveis (ex: Modais)
-│   ├── navigation/       # Configuração da navegação (React Navigation)
-│   ├── screens/          # As telas do aplicativo (HomeScreen, RecordingsScreen)
-│   ├── services/         # Lógica de negócio (ex: recordingService)
-│   └── styles/           # Folhas de estilo para os componentes e telas
-├── ios/                  # Arquivos nativos do iOS
-└── android/              # Arquivos nativos do Android
